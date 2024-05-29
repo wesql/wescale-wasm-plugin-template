@@ -19,7 +19,14 @@ make build-examples
 ```
 
 ## Install
-TODO
+```bash
+make install
+
+# or if you want to specify the output file name
+make install OUTPUT=my_plugin.wasm
+```
 
 ## Uninstall
-TODO
+```bash
+make uninstall
+```
