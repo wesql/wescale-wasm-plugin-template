@@ -28,8 +28,8 @@ make build-examples
 1. You need to use the `make build` command to build the wasm binary (if it's not already built).
 2. You need to use the `make install-wescale-wasm` command to download the `wescale_wasm` binary (if it's not already downloaded).
 3. You need to use the `wescale_wasm` binary to install the plugin.
-    3.1 It will copy the wasm binary to the `WeScale` cluster. You can see the wasm binary in the `mysql.wasm_binary` system table.
-    3.2 It will create a new filter and attach the wasm binary to it. You can see the filter using the `SHOW FILTERS` command.
+    * It will copy the wasm binary to the `WeScale` cluster. You can see the wasm binary in the `mysql.wasm_binary` system table.
+    * It will create a new filter and attach the wasm binary to it. You can see the filter using the `SHOW FILTERS` command.
 
 You can specify detailed arguments for the `wescale_wasm` binary to install the plugin. 
 ```bash
@@ -50,8 +50,8 @@ You can specify detailed arguments for the `wescale_wasm` binary to install the 
 ## UnDeploy
 **How to undeploy a wasm binary:**
 1. You need to use the `wescale_wasm` binary to uninstall the plugin.
-    1.1 It will delete the wasm binary from the `WeScale` cluster. You can see the wasm binary in the `mysql.wasm_binary` system table.
-    1.2 It will delete the filter and detach the wasm binary from it. You can see the filter using the `SHOW FILTERS` command.
+    * It will delete the wasm binary from the `WeScale` cluster. You can see the wasm binary in the `mysql.wasm_binary` system table.
+    * It will delete the filter and detach the wasm binary from it. You can see the filter using the `SHOW FILTERS` command.
 ```bash
 ./bin/wescale_wasm --command=uninstall --filter_name=foo
 ```
