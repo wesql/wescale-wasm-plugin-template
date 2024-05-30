@@ -44,15 +44,15 @@ clean:
 	rm -f ./bin/*
 
 # Default output filename
-OUTPUT ?= guest.wasm
+WASM_FILE ?= guest.wasm
 
 build:
 	mkdir -p bin
-	tinygo build --no-debug -o ./bin/$(OUTPUT) -target=wasi -scheduler=none ./main.go
+	tinygo build --no-debug -o ./bin/$(WASM_FILE) -target=wasi -scheduler=none ./main.go
 
 install: build install-wescale-wasm
-	./bin/wescale_wasm --command=install --wasm_file=./bin/$(OUTPUT)
+	./bin/wescale_wasm --command=install --wasm_file=./bin/$(WASM_FILE)
 
 uninstall:
-	./bin/wescale_wasm --command=uninstall
+	./bin/wescale_wasm --command=uninstall --wasm_file=./bin/$(WASM_FILE)
 

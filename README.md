@@ -10,7 +10,7 @@ you should write your code in the `main.go` and then run the following command t
 make build
 
 # or if you want to specify the output file name
-make build OUTPUT=my_plugin.wasm
+make build WASM_FILE=my_plugin.wasm
 ```
 
 If you want to build the example plugin, you can run the following command.
@@ -23,10 +23,13 @@ make build-examples
 make install
 
 # or if you want to specify the output file name
-make install OUTPUT=my_plugin.wasm
+make install WASM_FILE=my_plugin.wasm
 ```
 
 ## Uninstall
 ```bash
 make uninstall
+
+# or if you want to specify the output file name
+make uninstall WASM_FILE=my_plugin.wasm
 ```
