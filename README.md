@@ -1,9 +1,9 @@
 # WeScale-Wasm-Plugin-Template
 
 ## Pre-requisites
-You need to have TinyGo to compile the code, you can install it by following the instructions [here](https://tinygo.org/getting-started/install/).
+* You need to have TinyGo to compile the code, you can install it by following the instructions [here](https://tinygo.org/getting-started/install/).
 
-You will also need to have the `wescale_wasm` binary to deploy the plugin, you can download it by running the following command.
+* You will also need to have the `wescale_wasm` binary to deploy the plugin, you can download it by running the following command.
 ```bash
 make install-wescale-wasm
 ```
