@@ -42,7 +42,6 @@ build-examples:
 
 clean:
 	rm -f ./bin/*
-	rm -rf ./dist/*
 
 # Default output filename
 OUTPUT ?= guest.wasm
