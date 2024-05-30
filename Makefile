@@ -10,17 +10,21 @@ DOWNLOAD_URL := https://github.com/wesql/wescale-wasm-plugin/releases/download/$
 .PHONY: install-wescale-wasm
 install-wescale-wasm:
 	mkdir -p bin
-	@echo "Downloading binary..."
-	@curl -L -o $(BINARY_NAME) "$(DOWNLOAD_URL)"
-	@if [ $$? -ne 0 ]; then \
-		echo "Download failed, please check your network connection and URL correctness."; \
-		exit 1; \
+	@if [ -f "$(INSTALL_DIR)/$(BINARY_NAME)" ]; then \
+		echo "Binary already exists in $(INSTALL_DIR). Skipping installation."; \
+	else \
+		echo "Downloading binary..."; \
+		curl -L -o $(BINARY_NAME) "$(DOWNLOAD_URL)"; \
+		if [ $$? -ne 0 ]; then \
+			echo "Download failed, please check your network connection and URL correctness."; \
+			exit 1; \
+		fi; \
+		echo "Moving binary to $(INSTALL_DIR)..."; \
+		sudo mv $(BINARY_NAME) "$(INSTALL_DIR)"; \
+		echo "Setting executable permissions..."; \
+		sudo chmod +x "$(INSTALL_DIR)/$(BINARY_NAME)"; \
+		echo "Installation completed. You can now use the $(BINARY_NAME) command."; \
 	fi
-	@echo "Moving binary to $(INSTALL_DIR)..."
-	@sudo mv $(BINARY_NAME) "$(INSTALL_DIR)"
-	@echo "Setting executable permissions..."
-	@sudo chmod +x "$(INSTALL_DIR)/$(BINARY_NAME)"
-	@echo "Installation completed. You can now use the $(BINARY_NAME) command."
 
 .PHONY: uninstall-wescale-wasm
 uninstall-wescale-wasm:
