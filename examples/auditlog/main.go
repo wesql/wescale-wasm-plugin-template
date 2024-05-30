@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/wesql/wescale-wasm-plugin/pkg"
-	hostfunction "github.com/wesql/wescale-wasm-plugin/pkg/host_functions/v1alpha1"
-	"github.com/wesql/wescale-wasm-plugin/pkg/proto/query"
+	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
+	hostfunction "github.com/wesql/wescale-wasm-plugin-sdk/pkg/host_functions/v1alpha1"
+	"github.com/wesql/wescale-wasm-plugin-sdk/pkg/proto/query"
 )
 
 func main() {

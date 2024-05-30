@@ -5,7 +5,7 @@ BINARY_NAME := wescale_wasm
 OS := $(shell uname -s | tr '[:upper:]' '[:lower:]')
 ARCH := $(shell uname -m)
 
-DOWNLOAD_URL := https://github.com/wesql/wescale-wasm-plugin/releases/download/$(VERSION)/$(BINARY_NAME)_$(VERSION)_$(OS)_$(ARCH)
+DOWNLOAD_URL := https://github.com/wesql/wescale-wasm-plugin-sdk/releases/download/$(VERSION)/$(BINARY_NAME)_$(VERSION)_$(OS)_$(ARCH)
 
 .PHONY: install-wescale-wasm
 install-wescale-wasm:
