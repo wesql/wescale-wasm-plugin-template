@@ -20,16 +20,16 @@ install-wescale-wasm:
 			exit 1; \
 		fi; \
 		echo "Moving binary to $(INSTALL_DIR)..."; \
-		sudo mv $(BINARY_NAME) "$(INSTALL_DIR)"; \
+		mv $(BINARY_NAME) "$(INSTALL_DIR)"; \
 		echo "Setting executable permissions..."; \
-		sudo chmod +x "$(INSTALL_DIR)/$(BINARY_NAME)"; \
+		chmod +x "$(INSTALL_DIR)/$(BINARY_NAME)"; \
 		echo "Installation completed. You can now use the $(BINARY_NAME) command."; \
 	fi
 
 .PHONY: uninstall-wescale-wasm
 uninstall-wescale-wasm:
 	@echo "Removing binary from $(INSTALL_DIR)..."
-	@sudo rm -f "$(INSTALL_DIR)/$(BINARY_NAME)"
+	@rm -f "$(INSTALL_DIR)/$(BINARY_NAME)"
 	@echo "Uninstallation completed."
 
 build-examples:
