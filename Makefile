@@ -1,4 +1,4 @@
-VERSION := v0.1.1
+VERSION := v0.1.2-beta3
 INSTALL_DIR := ./bin
 BINARY_NAME := wescale_wasm
 
