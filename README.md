@@ -13,12 +13,9 @@ You can write your code in the `main.go` file. You can use the following templat
 You can see the example code in the `examples` directory.
 
 ## Build
-
-you should write your code in the `main.go` and then run the following command to build the plugin.
+You can build the wasm binary by running the following command. You can specify the wasm file name by using the WASM_FILE variable. 
+You can see the wasm binary in the bin directory.
 ```bash
-make build
-
-# or if you want to specify the output file name
 make build WASM_FILE=my_plugin.wasm
 ```
 
@@ -41,13 +38,10 @@ You can specify detailed arguments for the `wescale_wasm` binary to install the 
 ./bin/wescale_wasm -h
 
 # To specify the mysql arguments
-./bin/wescale_wasm --command=install --mysql_host=127.0.0.1 --mysql_port=15306 --mysql_user=root --mysql_password=root
-
-# To specify the wasm file arguments
-./bin/wescale_wasm --command=install --wasm_file=./bin/my_plugin.wasm
+./bin/wescale_wasm --command=install --wasm_file=./bin/my_plugin.wasm --mysql_host=127.0.0.1 --mysql_port=15306 --mysql_user=root --mysql_password=root
 
 # To specify the filter arguments
-./bin/wescale_wasm --command=install --filter_name=foo --filter_desc='some kind of description' --filter_status=INACTIVE
+./bin/wescale_wasm --command=install --wasm_file=./bin/my_plugin.wasm --filter_name=my_plugin_wasm_filter --filter_desc='some kind of description' --filter_status=INACTIVE
 ```
 
 
@@ -57,5 +51,5 @@ You can specify detailed arguments for the `wescale_wasm` binary to install the 
     * It will delete the wasm binary from the `WeScale` cluster. You can see the wasm binary in the `mysql.wasm_binary` system table.
     * It will delete the filter and detach the wasm binary from it. You can see the filter using the `SHOW FILTERS` command.
 ```bash
-./bin/wescale_wasm --command=uninstall --filter_name=foo
+./bin/wescale_wasm --command=uninstall --filter_name=my_plugin_wasm_filter
 ```

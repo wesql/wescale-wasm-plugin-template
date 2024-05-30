@@ -1,4 +1,4 @@
-VERSION := v0.1.2-beta3
+VERSION := v0.1.2
 INSTALL_DIR := ./bin
 BINARY_NAME := wescale_wasm
 
@@ -44,7 +44,7 @@ clean:
 	rm -f ./bin/*
 
 # Default output filename
-WASM_FILE ?= guest.wasm
+WASM_FILE ?= my_plugin.wasm
 
 build:
 	mkdir -p bin
