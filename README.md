@@ -8,6 +8,10 @@
 make install-wescale-wasm
 ```
 
+## Write your code
+You can write your code in the `main.go` file. You can use the following template to write your code.
+You can see the example code in the `examples` directory.
+
 ## Build
 
 you should write your code in the `main.go` and then run the following command to build the plugin.
