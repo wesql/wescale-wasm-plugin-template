@@ -37,7 +37,9 @@ build-examples:
 	# Iterate over all the examples and build them
 	for example in $(shell ls ./examples); do \
 		echo "Building example: $$example"; \
-		tinygo build --no-debug -o ./bin/$$example.wasm -target=wasi -scheduler=none ./examples/$$example/main.go; \
+		cd ./examples/$$example && \
+		tinygo build --no-debug -o ../../bin/$$example.wasm -target=wasi -scheduler=none ./main.go && \
+		cd -; \
 	done
 
 clean:
