@@ -32,6 +32,7 @@ uninstall-wescale-wasm:
 	@rm -f "$(INSTALL_DIR)/$(BINARY_NAME)"
 	@echo "Uninstallation completed."
 
+.PHONY: build-examples
 build-examples:
 	mkdir -p bin
 	# Iterate over all the examples and build them
@@ -42,12 +43,40 @@ build-examples:
 		cd -; \
 	done
 
+MYSQL_HOST=127.0.0.1
+MYSQL_PORT=15306
+MYSQL_USER=root
+MYSQL_PASSWORD=root
+
+.PHONY: deploy-examples
+deploy-examples:
+	./bin/wescale_wasm --command=install --wasm_file=./bin/auditlog.wasm \
+		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
+		--filter_name=auditlog_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE
+
+	./bin/wescale_wasm --command=install --wasm_file=./bin/datamasking.wasm \
+		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
+		--filter_name=datamasking_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
+		--filter_plans="Select"
+
+	./bin/wescale_wasm --command=install --wasm_file=./bin/interceptor.wasm \
+		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
+		--filter_name=interceptor_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
+		--filter_plans="Update,Delete"
+
+undeploy-examples:
+	./bin/wescale_wasm --command=uninstall --filter_name=auditlog_wasm_filter
+	./bin/wescale_wasm --command=uninstall --filter_name=datamasking_wasm_filter
+	./bin/wescale_wasm --command=uninstall --filter_name=interceptor_wasm_filter
+
+.PHONY: clean
 clean:
 	rm -f ./bin/*
 
 # Default output filename
 WASM_FILE ?= my_plugin.wasm
 
+.PHONY: build
 build:
 	mkdir -p bin
 	tinygo build --no-debug -o ./bin/$(WASM_FILE) -target=wasi -scheduler=none ./main.go
