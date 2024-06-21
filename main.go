@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
+	hostfunction "github.com/wesql/wescale-wasm-plugin-sdk/pkg/host_functions/v1alpha1"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg/proto/query"
 )
 
@@ -14,6 +15,7 @@ type CustomWasmPlugin struct {
 }
 
 func (a *CustomWasmPlugin) RunBeforeExecution() error {
+	hostfunction.GetQueryResult()
 	//TODO: Implement your logic here
 	return nil
 }
