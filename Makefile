@@ -39,7 +39,8 @@ build-examples:
 	for example in $(shell ls ./examples); do \
 		echo "Building example: $$example"; \
 		cd ./examples/$$example && \
-		tinygo build --no-debug -o ../../bin/$$example.wasm -target=wasi -scheduler=none ./main.go && \
+		go mod tidy && \
+		tinygo build -o ../../bin/$$example.wasm -target=wasi -scheduler=none ./main.go && \
 		cd -; \
 	done
 
