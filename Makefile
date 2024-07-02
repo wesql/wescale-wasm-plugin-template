@@ -59,7 +59,7 @@ deploy-examples:
 		--filter_name=datamasking_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
 		--filter_plans="Select"
 
-	./bin/wescale_wasm --command=install --wasm_file=./bin/datamacking.wasm \
+	./bin/wescale_wasm --command=install --wasm_file=./bin/datamocking.wasm \
     		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
     		--filter_name=datamocking_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
     		--filter_plans="Select"
