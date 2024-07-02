@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/earayu/sqlparser/go/vt/proto/query"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
-	"github.com/wesql/wescale-wasm-plugin-sdk/pkg/proto/query"
 )
 
 func main() {

@@ -2,8 +2,8 @@ package main
 
 import (
 	"bytes"
+	"github.com/earayu/sqlparser/go/vt/proto/query"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
-	"github.com/wesql/wescale-wasm-plugin-sdk/pkg/proto/query"
 )
 
 func main() {
@@ -22,6 +22,7 @@ func (a *DataMaskingWasmPlugin) RunAfterExecution(queryResult *query.QueryResult
 	if queryResult == nil {
 		return queryResult, errBefore
 	}
+
 	for rowIndex := range queryResult.Rows {
 		newLengths := make([]int64, 0)
 		newValues := bytes.Buffer{}
