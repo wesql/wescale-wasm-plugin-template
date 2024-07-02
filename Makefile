@@ -59,6 +59,11 @@ deploy-examples:
 		--filter_name=datamasking_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
 		--filter_plans="Select"
 
+	./bin/wescale_wasm --command=install --wasm_file=./bin/datamacking.wasm \
+    		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
+    		--filter_name=datamocking_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
+    		--filter_plans="Select"
+
 	./bin/wescale_wasm --command=install --wasm_file=./bin/interceptor.wasm \
 		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
 		--filter_name=interceptor_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
@@ -67,6 +72,7 @@ deploy-examples:
 undeploy-examples:
 	./bin/wescale_wasm --command=uninstall --filter_name=auditlog_wasm_filter
 	./bin/wescale_wasm --command=uninstall --filter_name=datamasking_wasm_filter
+	./bin/wescale_wasm --command=uninstall --filter_name=datamocking_wasm_filter
 	./bin/wescale_wasm --command=uninstall --filter_name=interceptor_wasm_filter
 
 .PHONY: clean
