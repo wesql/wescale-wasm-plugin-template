@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/earayu/sqlparser/go/vt/proto/query"
+	"github.com/wesql/sqlparser/go/vt/proto/query"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
 	hostfunction "github.com/wesql/wescale-wasm-plugin-sdk/pkg/host_functions/v1alpha1"
 )
