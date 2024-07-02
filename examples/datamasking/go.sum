@@ -1,10 +1,8 @@
-github.com/earayu/sqlparser v0.1.3 h1:1LFUVq6+P+MP8Cp6fZQ1YFY1u0/0Vrf7A3mQfHt1w1s=
-github.com/earayu/sqlparser v0.1.3/go.mod h1:YUcROekqfBWOp0gTlAbc/Maqx0iB49D9QrE4kJKKu9k=
+github.com/earayu/sqlparser v0.1.4 h1:cTLh0DXnSfy18NfSqqr9VEv5Mdn8qD8aTDX9SQJYX/0=
 github.com/earayu/sqlparser v0.1.4/go.mod h1:glqY64FknH9Vw+AMSQq7K091llkFNb9idHASSqBjF7A=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
-github.com/wesql/wescale-wasm-plugin-sdk v0.1.7 h1:8TCt7GxZ3j5M/v6kyFd2AYa/xI3xIK95Y/cB8lF6JYI=
-github.com/wesql/wescale-wasm-plugin-sdk v0.1.7/go.mod h1:Sm0Lrsn5W/QlWGyDL9AfC6bums3csw1ms6PHpbamDWI=
+github.com/wesql/wescale-wasm-plugin-sdk v0.1.8 h1:I+VBKxPYJ7KD+0mj46exLo6Fed1mBMohuJX4KAaowHQ=
 github.com/wesql/wescale-wasm-plugin-sdk v0.1.8/go.mod h1:cD/fQoRM6CtO3qlxjm3r/RqAHTJ+Fz5503z8FCvnPR4=
 google.golang.org/protobuf v1.34.2 h1:6xV6lTsCfpGD21XK49h7MhtcApnLqkfYgPcdHftf6hg=
 google.golang.org/protobuf v1.34.2/go.mod h1:qYOHts0dSfpeUzUFpOMr/WGzszTmLH+DiWniOlNbLDw=
