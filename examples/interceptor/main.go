@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/earayu/sqlparser"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
 	hostfunction "github.com/wesql/wescale-wasm-plugin-sdk/pkg/host_functions/v1alpha1"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg/proto/query"
-	"github.com/xwb1989/sqlparser"
 )
 
 func main() {
