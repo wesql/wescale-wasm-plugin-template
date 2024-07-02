@@ -2,6 +2,7 @@ github.com/earayu/sqlparser v0.1.4 h1:cTLh0DXnSfy18NfSqqr9VEv5Mdn8qD8aTDX9SQJYX/
 github.com/earayu/sqlparser v0.1.4/go.mod h1:glqY64FknH9Vw+AMSQq7K091llkFNb9idHASSqBjF7A=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
+github.com/wesql/sqlparser v0.1.5/go.mod h1:km8yaigrUQKZ1BUOhgGoXvov4x3AbdVEDkt7VCnGN1o=
 github.com/wesql/wescale-wasm-plugin-sdk v0.1.8 h1:I+VBKxPYJ7KD+0mj46exLo6Fed1mBMohuJX4KAaowHQ=
 github.com/wesql/wescale-wasm-plugin-sdk v0.1.8/go.mod h1:cD/fQoRM6CtO3qlxjm3r/RqAHTJ+Fz5503z8FCvnPR4=
 google.golang.org/protobuf v1.34.2 h1:6xV6lTsCfpGD21XK49h7MhtcApnLqkfYgPcdHftf6hg=

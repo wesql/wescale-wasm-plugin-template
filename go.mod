@@ -3,7 +3,7 @@ module github.com/wesql/wescale-wasm-plugin-template
 go 1.22.3
 
 require (
-	github.com/earayu/sqlparser v0.1.4
+	github.com/wesql/sqlparser v0.1.5
 	github.com/wesql/wescale-wasm-plugin-sdk v0.1.8
 )
 
