@@ -7,6 +7,4 @@ require (
 	github.com/wesql/wescale-wasm-plugin-sdk v0.1.8
 )
 
-require (
-	google.golang.org/protobuf v1.34.2 // indirect
-)
+require google.golang.org/protobuf v1.34.2 // indirect
