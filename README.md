@@ -38,10 +38,10 @@ You can specify detailed arguments for the `wescale_wasm` binary to install the 
 ./bin/wescale_wasm -h
 
 # To specify the mysql arguments
-./bin/wescale_wasm --command=install --wasm_file=./bin/my_plugin.wasm --mysql_host=127.0.0.1 --mysql_port=15306 --mysql_user=root --mysql_password=root
+./bin/wescale_wasm --command=install --wasm_file=./bin/my_plugin.wasm --mysql_host=127.0.0.1 --mysql_port=15306 --mysql_user=root --mysql_password=root --create_filter 
 
 # To specify the filter arguments
-./bin/wescale_wasm --command=install --wasm_file=./bin/my_plugin.wasm --filter_name=my_plugin_wasm_filter --filter_desc='some kind of description' --filter_status=INACTIVE
+./bin/wescale_wasm --command=install --wasm_file=./bin/my_plugin.wasm --create_filter --filter_name=my_plugin_wasm_filter --filter_desc='some kind of description' --filter_status=INACTIVE
 ```
 
 

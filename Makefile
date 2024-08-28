@@ -1,4 +1,4 @@
-VERSION := v0.1.2
+VERSION := v0.1.12
 INSTALL_DIR := ./bin
 BINARY_NAME := wescale_wasm
 
@@ -53,21 +53,21 @@ MYSQL_PASSWORD=root
 deploy-examples:
 	./bin/wescale_wasm --command=install --wasm_file=./bin/auditlog.wasm \
 		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
-		--filter_name=auditlog_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE
+		--create_filter --filter_name=auditlog_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE
 
 	./bin/wescale_wasm --command=install --wasm_file=./bin/datamasking.wasm \
 		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
-		--filter_name=datamasking_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
+		--create_filter --filter_name=datamasking_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
 		--filter_plans="Select"
 
 	./bin/wescale_wasm --command=install --wasm_file=./bin/datamocking.wasm \
     		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
-    		--filter_name=datamocking_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
+    		--create_filter --filter_name=datamocking_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
     		--filter_plans="Select"
 
 	./bin/wescale_wasm --command=install --wasm_file=./bin/interceptor.wasm \
 		--mysql_host=$(MYSQL_HOST) --mysql_port=$(MYSQL_PORT) --mysql_user=$(MYSQL_USER) --mysql_password=$(MYSQL_PASSWORD) \
-		--filter_name=interceptor_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
+		--create_filter --filter_name=interceptor_wasm_filter --filter_desc='some kind of description' --filter_status=ACTIVE \
 		--filter_plans="Update,Delete"
 
 undeploy-examples:
