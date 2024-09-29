@@ -86,4 +86,5 @@ WASM_FILE ?= my_plugin.wasm
 .PHONY: build
 build:
 	mkdir -p bin
+	go mod tidy
 	tinygo build --no-debug -o ./bin/$(WASM_FILE) -target=wasi -scheduler=none ./main.go
