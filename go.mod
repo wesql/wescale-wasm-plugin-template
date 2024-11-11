@@ -1,6 +1,6 @@
 module github.com/wesql/wescale-wasm-plugin-template
 
-go 1.22.3
+go 1.23
 
 require (
 	github.com/wesql/sqlparser v0.1.5
