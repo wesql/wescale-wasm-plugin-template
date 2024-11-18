@@ -19,6 +19,9 @@ WORKDIR /workspace
 COPY Makefile .
 RUN make install-wescale-wasm
 
+# Add bin directory to PATH
+ENV PATH="/workspace/bin:${PATH}"
+
 # Copy entrypoint script
 COPY <<'EOF' /entrypoint.sh
 #!/bin/bash
@@ -29,7 +32,7 @@ make build WASM_FILE=${WASM_FILE:-my_plugin.wasm}
 
 # Deploy if DEPLOY is set to true
 if [ "${DEPLOY}" = "true" ]; then
-    /workspace/bin/wescale_wasm --command=install \
+    wescale_wasm --command=install \
         --wasm_file=/workspace/bin/${WASM_FILE:-my_plugin.wasm} \
         --mysql_host=${MYSQL_HOST:-127.0.0.1} \
         --mysql_port=${MYSQL_PORT:-15306} \
