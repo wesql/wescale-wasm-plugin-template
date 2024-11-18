@@ -1,18 +1,29 @@
 # WeScale-Wasm-Plugin-Template
 
-## Pre-requisites
-* You need to have TinyGo to compile the code, you can install it by following the instructions [here](https://tinygo.org/getting-started/install/).
-
-* You will also need to have the `wescale_wasm` binary to deploy the plugin, you can download it by running the following command.
-```bash
-make install-wescale-wasm
-```
-
 ## Write your code
-You can write your code in the `main.go` file. You can use the following template to write your code.
+You can write your code in the `main.go` file. 
+
 You can see the example code in the `examples` directory.
 
-## Build
+## Build Wasm Using Docker (Recommended)
+You can build the wasm binary by running the following command. You can specify the wasm file name by using the WASM_FILE variable.
+
+```bash
+# Make sure you are in the root directory of the project
+cd /path/to/WeScale-Wasm-Plugin-Template
+
+docker run -it --rm -v $(pwd):/workspace earayu/wescale-wasm-builder make build WASM_FILE=my_plugin.wasm
+```
+
+Then you can see the wasm binary in the bin directory.
+```bash
+$ ls bin
+my_plugin.wasm
+```
+
+## Build Wasm Locally Using TinyGo
+> Pre-requisites: You need to have TinyGo to compile the code, you can install it by following the instructions [here](https://tinygo.org/getting-started/install/).
+
 You can build the wasm binary by running the following command. You can specify the wasm file name by using the WASM_FILE variable. 
 You can see the wasm binary in the bin directory.
 ```bash
@@ -25,11 +36,16 @@ make build-examples
 ```
 
 ## Deploy
+> Pre-requisites: You will need to have the `wescale_wasm` binary to deploy the plugin, you can download it by running the following command.
+> ```bash
+> make install-wescale-wasm
+> ```
+
 **How to deploy a wasm binary to WeScale to be a Filter:**
-1. You need to use the `make build` command to build the wasm binary (if it's not already built).
-2. You need to use the `make install-wescale-wasm` command to download the `wescale_wasm` binary (if it's not already downloaded).
-3. You need to use the `wescale_wasm` binary to install the plugin.
-    * It will copy the wasm binary to the `WeScale` cluster. You can see the wasm binary in the `mysql.wasm_binary` system table.
+1. You need to build the wasm binary.
+2. You need to have `wescale_wasm` binary. (if it's not already downloaded)
+3. You need to use the `wescale_wasm` binary to install the plugin to wescale.
+    * It will copy the wasm binary to the `WeScale` cluster.
     * It will create a new filter and attach the wasm binary to it. You can see the filter using the `SHOW FILTERS` command.
 
 You can specify detailed arguments for the `wescale_wasm` binary to install the plugin. 

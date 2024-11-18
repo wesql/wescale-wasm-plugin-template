@@ -55,3 +55,17 @@ build-examples:
 		tinygo build -o ../../bin/$$example.wasm -target=wasi -scheduler=none ./main.go && \
 		cd -; \
 	done
+
+.PHONY: build-docker
+build-docker:
+	docker build -t wescale-wasm-builder:latest .
+
+.PHONY: push-docker
+push-docker:
+	docker tag wescale-wasm-builder:latest earayu/wescale-wasm-builder:latest
+	docker push earayu/wescale-wasm-builder:latest
+
+.PHONY: build-wasm-using-docker
+build-wasm-using-docker:
+	docker run -it -v $(pwd):/workspace earayu/wescale-wasm-builder make build
+
