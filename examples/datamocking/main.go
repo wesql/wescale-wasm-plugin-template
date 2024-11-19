@@ -24,6 +24,9 @@ func (a *DataMockingWasmPlugin) RunAfterExecution(queryResult *query.QueryResult
 	}
 
 	result := sqltypes.Proto3ToResult(queryResult)
+	if result.Fields == nil || len(result.Fields) == 0 {
+		return queryResult, errBefore
+	}
 	mockResult := sqltypes.MakeTestResult(result.Fields)
 	if len(result.Rows) > 0 {
 		mockResult.Rows = make([][]sqltypes.Value, len(result.Rows))
