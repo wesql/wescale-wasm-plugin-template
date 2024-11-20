@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	pkg.SetWasmPlugin(&DataMockingWasmPlugin{})
+	pkg.InitWasmPlugin(&DataMockingWasmPlugin{})
 }
 
 type DataMockingWasmPlugin struct {

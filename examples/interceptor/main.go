@@ -5,11 +5,11 @@ import (
 	"github.com/wesql/sqlparser"
 	"github.com/wesql/sqlparser/go/vt/proto/query"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
-	hostfunction "github.com/wesql/wescale-wasm-plugin-sdk/pkg/host_functions/v1alpha1"
+	hostfunction "github.com/wesql/wescale-wasm-plugin-sdk/pkg/v1alpha2/host_functions"
 )
 
 func main() {
-	pkg.SetWasmPlugin(&ParserWasmPlugin{})
+	pkg.InitWasmPlugin(&ParserWasmPlugin{})
 }
 
 type ParserWasmPlugin struct {

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	pkg.SetWasmPlugin(&DataMaskingWasmPlugin{})
+	pkg.InitWasmPlugin(&DataMaskingWasmPlugin{})
 }
 
 type DataMaskingWasmPlugin struct {
