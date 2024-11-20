@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/wesql/sqlparser/go/vt/proto/query"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
-	hostfunction "github.com/wesql/wescale-wasm-plugin-sdk/pkg/v1alpha2/host_functions"
+	hostfunction "github.com/wesql/wescale-wasm-plugin-sdk/pkg/host_functions"
 )
 
 func main() {
