@@ -65,7 +65,8 @@ push-docker:
 	docker tag wescale-wasm-builder:latest earayu/wescale-wasm-builder:latest
 	docker push earayu/wescale-wasm-builder:latest
 
+current_dir=$(shell pwd)
 .PHONY: build-wasm-using-docker
 build-wasm-using-docker:
-	docker run -it -v $(pwd):/workspace earayu/wescale-wasm-builder make build
+	docker run -it -v $(current_dir):/workspace earayu/wescale-wasm-builder make build
 
