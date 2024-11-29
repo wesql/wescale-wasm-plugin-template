@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	pkg.SetWasmPlugin(&CustomWasmPlugin{})
+	pkg.InitWasmPlugin(&CustomWasmPlugin{})
 }
 
 // TODO: RENAME THIS STRUCT TO YOUR PLUGIN NAME
