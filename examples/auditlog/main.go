@@ -5,6 +5,7 @@ import (
 	"github.com/wesql/sqlparser/go/vt/proto/query"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
 	hostfunction "github.com/wesql/wescale-wasm-plugin-sdk/pkg/host_functions"
+	"github.com/wesql/wescale-wasm-plugin-sdk/pkg/types"
 )
 
 func main() {
@@ -14,22 +15,22 @@ func main() {
 type AuditLogWasmPlugin struct {
 }
 
-func (a *AuditLogWasmPlugin) RunBeforeExecution() error {
-	query, err := hostfunction.GetHostQuery()
+func (a *AuditLogWasmPlugin) RunBeforeExecution(pluginCtx types.WasmPluginContext) error {
+	query, err := hostfunction.GetHostQuery(pluginCtx)
 	if err != nil {
 		return err
 	}
-	hostfunction.InfoLog("execute SQL: " + query)
+	hostfunction.InfoLog(pluginCtx, "execute SQL: "+query)
 	return nil
 }
 
-func (a *AuditLogWasmPlugin) RunAfterExecution(queryResult *query.QueryResult, errBefore error) (*query.QueryResult, error) {
+func (a *AuditLogWasmPlugin) RunAfterExecution(pluginCtx types.WasmPluginContext, queryResult *query.QueryResult, errBefore error) (*query.QueryResult, error) {
 	if queryResult != nil {
-		hostfunction.InfoLog(fmt.Sprintf("returned rows: %v", len(queryResult.Rows)))
-		hostfunction.InfoLog(fmt.Sprintf("affected rows: %v", queryResult.RowsAffected))
+		hostfunction.InfoLog(pluginCtx, fmt.Sprintf("returned rows: %v", len(queryResult.Rows)))
+		hostfunction.InfoLog(pluginCtx, fmt.Sprintf("affected rows: %v", queryResult.RowsAffected))
 	}
 	if errBefore != nil {
-		hostfunction.InfoLog("execution error: " + errBefore.Error())
+		hostfunction.InfoLog(pluginCtx, "execution error: "+errBefore.Error())
 	}
 
 	return queryResult, errBefore

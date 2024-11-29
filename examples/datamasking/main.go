@@ -4,6 +4,7 @@ import (
 	"github.com/wesql/sqlparser/go/sqltypes"
 	"github.com/wesql/sqlparser/go/vt/proto/query"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
+	"github.com/wesql/wescale-wasm-plugin-sdk/pkg/types"
 	"math/rand"
 	"time"
 )
@@ -15,12 +16,12 @@ func main() {
 type DataMaskingWasmPlugin struct {
 }
 
-func (a *DataMaskingWasmPlugin) RunBeforeExecution() error {
+func (a *DataMaskingWasmPlugin) RunBeforeExecution(pluginCtx types.WasmPluginContext) error {
 	// do nothing
 	return nil
 }
 
-func (a *DataMaskingWasmPlugin) RunAfterExecution(queryResult *query.QueryResult, errBefore error) (*query.QueryResult, error) {
+func (a *DataMaskingWasmPlugin) RunAfterExecution(pluginCtx types.WasmPluginContext, queryResult *query.QueryResult, errBefore error) (*query.QueryResult, error) {
 	if queryResult == nil || errBefore != nil {
 		return queryResult, errBefore
 	}

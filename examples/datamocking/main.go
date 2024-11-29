@@ -4,6 +4,7 @@ import (
 	"github.com/wesql/sqlparser/go/sqltypes"
 	"github.com/wesql/sqlparser/go/vt/proto/query"
 	"github.com/wesql/wescale-wasm-plugin-sdk/pkg"
+	"github.com/wesql/wescale-wasm-plugin-sdk/pkg/types"
 )
 
 func main() {
@@ -13,12 +14,12 @@ func main() {
 type DataMockingWasmPlugin struct {
 }
 
-func (a *DataMockingWasmPlugin) RunBeforeExecution() error {
+func (a *DataMockingWasmPlugin) RunBeforeExecution(pluginCtx types.WasmPluginContext) error {
 	// do nothing
 	return nil
 }
 
-func (a *DataMockingWasmPlugin) RunAfterExecution(queryResult *query.QueryResult, errBefore error) (*query.QueryResult, error) {
+func (a *DataMockingWasmPlugin) RunAfterExecution(pluginCtx types.WasmPluginContext, queryResult *query.QueryResult, errBefore error) (*query.QueryResult, error) {
 	if queryResult == nil || errBefore != nil {
 		return queryResult, errBefore
 	}
